@@ -1,9 +1,5 @@
+import MainPage from "./features/main/MainPage";
 
-export default function Home() {
-  return (
-    <div className="flex">
-      <div>A</div>
-      <div>B</div>
-    </div>
-  );
+export default function Page() {
+  return <MainPage />;
 }
