@@ -23,7 +23,13 @@ export default function UploadSvg({
     <div className="flex-1 mb-4 sm:mb-0 p-4 bg-white rounded-md">
       <p className="text-xl mb-2">Upload your SVG</p>
 
-      <DragDropUpload accept="image/svg+xml" onFilesUpload={handleFiles} files={files} />
+      <DragDropUpload
+        accept=".svg, image/svg+xml"
+        onFilesUpload={handleFiles}
+        files={files}
+        title="Click to upload your SVG file here"
+        titleSecondary="or drag & drop your SVG"
+      />
     </div>
   );
 }

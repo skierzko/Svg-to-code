@@ -4,6 +4,8 @@ import { useRef, useState, DragEvent, ChangeEvent } from "react";
 
 interface DragDropUploadProps {
   onFilesUpload: (files: File[]) => void;
+  title?: string;
+  titleSecondary?: string;
   accept?: string;
   multiple?: boolean;
   files: File[];
@@ -11,6 +13,8 @@ interface DragDropUploadProps {
 
 export default function DragDropUpload({
   onFilesUpload,
+  title = "",
+  titleSecondary = "",
   accept = "*",
   multiple = false,
   files = [],
@@ -20,7 +24,27 @@ export default function DragDropUpload({
 
   const handleFiles = (fileList: FileList) => {
     const newFiles = Array.from(fileList);
-    onFilesUpload(newFiles);
+
+    const acceptedFiles = newFiles.filter((file) => {
+      if (!accept) return true;
+
+      const acceptRules = accept.split(",").map((rule) => rule.trim());
+
+      return acceptRules.some((rule) => {
+        if (rule.startsWith(".")) {
+          return file.name.toLowerCase().endsWith(rule.toLowerCase());
+        }
+
+        if (rule.endsWith("/*")) {
+          const baseType = rule.replace("/*", "");
+          return file.type.startsWith(baseType);
+        }
+
+        return file.type === rule;
+      });
+    });
+
+    onFilesUpload(acceptedFiles);
   };
 
   const handleDrop = (e: DragEvent<HTMLDivElement>) => {
@@ -64,7 +88,7 @@ export default function DragDropUpload({
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
       >
-        Click to upload your SVG file here
+        {title}
         <input
           ref={inputRef}
           type="file"
@@ -73,7 +97,7 @@ export default function DragDropUpload({
           accept={accept}
           multiple={multiple}
         />
-        <p className="text-gray-400">or drag & drop your SVG</p>
+        <p className="text-gray-400">{titleSecondary}</p>
       </div>
       <div>
         {files.length > 0 && (
