@@ -8,7 +8,7 @@ interface ShowCodeProps {
 
 export default function ShowCode({ svgCode }: ShowCodeProps) {
   const handleChange = (e: any) => {};
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState(true);
 
   const handleCopy = async () => {
     if (!svgCode) return;
@@ -34,14 +34,15 @@ export default function ShowCode({ svgCode }: ShowCodeProps) {
         ></textarea>
       </div>
 
-      {copied && <p className="text-green-600 text-sm">Copied to dashboard</p>}
-
-      <button
-        onClick={handleCopy}
-        className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md"
-      >
-        Copy to dashboard
-      </button>
+      <div className="flex gap-4 items-center mt-2">
+        <button
+          onClick={handleCopy}
+          className="px-4 py-2 bg-blue-500 text-white rounded-md"
+        >
+          Copy to dashboard
+        </button>
+        {copied && <p className="text-blue-500 text-sm">Copied to clipboard</p>}
+      </div>
     </div>
   );
 }
