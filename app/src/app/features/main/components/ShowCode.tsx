@@ -8,7 +8,7 @@ interface ShowCodeProps {
 
 export default function ShowCode({ svgCode }: ShowCodeProps) {
   const handleChange = (e: any) => {};
-  const [copied, setCopied] = useState(true);
+  const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
     if (!svgCode) return;
@@ -35,12 +35,15 @@ export default function ShowCode({ svgCode }: ShowCodeProps) {
       </div>
 
       <div className="flex gap-4 items-center mt-2">
-        <button
-          onClick={handleCopy}
-          className="px-4 py-2 bg-blue-500 text-white rounded-md"
-        >
-          Copy to dashboard
-        </button>
+        {svgCode !== null && svgCode !== "" && (
+          <button
+            onClick={handleCopy}
+            className="cursor-pointer px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+          >
+            Copy to dashboard
+          </button>
+        )}
+
         {copied && <p className="text-blue-500 text-sm">Copied to clipboard</p>}
       </div>
     </div>
