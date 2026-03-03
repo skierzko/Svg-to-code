@@ -117,7 +117,7 @@ export default function DragDropUpload({
             onClick={() => onFilesUpload([])}
             className="mt-4 px-4 py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600"
           >
-            Convert to code
+            Remove SVG
           </button>
         </div>
       )}
