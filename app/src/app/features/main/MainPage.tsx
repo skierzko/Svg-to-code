@@ -76,7 +76,7 @@ export default function MainPage() {
 
       <ShowCode svgCode={svgCode} />
 
-      <ViewSvg svgCode={svgCode} isSticky={true} />
+      {svgCode && <ViewSvg svgCode={svgCode} isSticky={true} />}
     </>
   );
 }
