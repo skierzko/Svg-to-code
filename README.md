@@ -13,15 +13,14 @@ The project is designed for frontend developers, designers, and anyone who wants
 - 🔄 Automatic conversion to structured HTML
 - 🧹 Code cleanup and basic optimization
 - 📋 One-click copy to clipboard
-- 💾 Optional HTML file download
-- 👀 Live preview (optional / planned)
+- 👀 Live preview
 
 ## 🛠 Tech Stack
 
-- Next.js  
-- React  
-- TypeScript (if applicable)  
-- CSS / Tailwind CSS / other styling solution  
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
 
 ## 🎯 Project Goal
 
@@ -35,33 +34,39 @@ To launch the application, you must complete the following steps.
 
 To start the production version, replace **compose.dev.yaml** with **compose.prod.yaml**
 
-
 1. Create a network
-    ```
-    docker network create svg_network
-    ```
+
+   ```
+   docker network create svg_network
+   ```
 
 2. Build dev
-    ```
-    docker compose -f compose.dev.yaml build
-    ```
+
+   ```
+   docker compose -f compose.dev.yaml build
+   ```
 
 3. Up dev
-    ```
-    docker compose -f compose.dev.yaml up
-    ```
+
+   ```
+   docker compose -f compose.dev.yaml up
+   ```
 
 4. Go to app catalog
-    ```
-    cd app
-    ```
+
+   ```
+   cd app
+   ```
 
 5. Run npm install
-    ```
-    npm install
-    ```
+   ```
+   npm install
+   ```
 
 # 📄 License
 
+This project is released as open-source software under the MIT License.
 
-If you want, I can also prepare a more “open-source polished” version with badges (build status, license, version, etc.).
+You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, provided that the copyright notice and the MIT License text are included in all copies or substantial portions of the software.
+
+The software is provided “as is”, without warranty of any kind, express or implied.
