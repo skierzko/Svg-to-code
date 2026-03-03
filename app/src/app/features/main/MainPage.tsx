@@ -43,6 +43,15 @@ export default function MainPage() {
     loadSvg();
   }, [files]);
 
+  const reloadSourceCode = () => {
+    if (svgNodes === null) {
+      return;
+    }
+
+    const formattedSvg = SvgParser.formatNodesToHtml(svgNodes, 0);
+    setSvgCode(formattedSvg);
+  };
+
   return (
     <>
       <section className="text-center my-8">
@@ -54,12 +63,20 @@ export default function MainPage() {
 
       <div className="sm:flex gap-4 m-4">
         <UploadSvg files={files} onFilesUpload={setFiles} />
-        <ViewSvg svgCode={svgCode} />
+        <ViewSvg svgCode={svgCode} isSticky={false} />
       </div>
 
-      <SvgOptions svgNode={svgNodes} pathNodes={pathNodes} />
+      {svgCode && svgNodes && (
+        <SvgOptions
+          svgNode={svgNodes}
+          pathNodes={pathNodes}
+          reloadSourceCode={reloadSourceCode}
+        />
+      )}
 
       <ShowCode svgCode={svgCode} />
+
+      <ViewSvg svgCode={svgCode} isSticky={true} />
     </>
   );
 }

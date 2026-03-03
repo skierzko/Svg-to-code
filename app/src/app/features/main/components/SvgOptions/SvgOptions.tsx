@@ -5,9 +5,18 @@ import TagAttributes from "./TagAttributes";
 interface SvgOptionsProps {
   svgNode: Node | SVGSVGElement | null;
   pathNodes: SVGPathElement[] | null;
+  reloadSourceCode: any;
 }
 
-export default function SvgOptions({ svgNode, pathNodes }: SvgOptionsProps) {
+export default function SvgOptions({
+  svgNode,
+  pathNodes,
+  reloadSourceCode,
+}: SvgOptionsProps) {
+  const handleOverloadSource = () => {
+    reloadSourceCode();
+  };
+
   return (
     <div className="flex-1 gap-4 m-4 bg-white rounded-md p-4">
       <p className="text-xl mb-2">Options</p>
@@ -38,6 +47,7 @@ export default function SvgOptions({ svgNode, pathNodes }: SvgOptionsProps) {
           node={svgNode}
           index={0}
           elementName={"SVG"}
+          handleOverloadSource={handleOverloadSource}
         />
 
         <p>Tags options:</p>
@@ -61,6 +71,7 @@ export default function SvgOptions({ svgNode, pathNodes }: SvgOptionsProps) {
               index={index}
               key={"path-" + index}
               elementName={"PATH"}
+              handleOverloadSource={handleOverloadSource}
             />
           ))}
       </div>
