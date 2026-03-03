@@ -115,7 +115,7 @@ export default function DragDropUpload({
         <div className="flex justify-end">
           <button
             onClick={() => onFilesUpload([])}
-            className="mt-4 px-4 py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600"
+            className="mt-4 px-4 py-2 bg-sky-500 text-white rounded-md cursor-pointer hover:bg-sky-600"
           >
             Remove SVG
           </button>
