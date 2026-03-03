@@ -15,6 +15,7 @@ export default function ViewSvg({ svgCode, isSticky }: ViewSvgProps) {
     <>
       <div
         className={`${isSticky ? "fixed w-75 top-0 right-0 mb-4 sm:mb-0 p-4 bg-white rounded-md shadow-md border border-gray-300" : ""}
+        ${isSticky && isOpened === false && "opacity-90"}
       ${!isSticky ? "flex-1 mb-4 sm:mb-0 p-4 bg-white rounded-md" : ""}`}
       >
         <div className="flex text-xl items-center">
@@ -38,9 +39,9 @@ export default function ViewSvg({ svgCode, isSticky }: ViewSvgProps) {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M8 4H4m0 0v4m0-4 5 5m7-5h4m0 0v4m0-4-5 5M8 20H4m0 0v-4m0 4 5-5m7 5h4m0 0v-4m0 4-5-5"
                   />
                 </svg>
@@ -58,9 +59,9 @@ export default function ViewSvg({ svgCode, isSticky }: ViewSvgProps) {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M5 9h4m0 0V5m0 4L4 4m15 5h-4m0 0V5m0 4 5-5M5 15h4m0 0v4m0-4-5 5m15-5h-4m0 0v4m0-4 5 5"
                   />
                 </svg>
