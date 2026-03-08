@@ -3,6 +3,10 @@
 A web application built with Next.js that allows you to convert SVG files into clean, ready-to-use HTML code.  
 The project is designed for frontend developers, designers, and anyone who wants to quickly transform vector graphics into production-friendly markup.
 
+## 🚀 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://svg-to-code.kierzkowski.net)
+
 ## 🌐 Portfolio
 
 [![Portfolio](https://img.shields.io/badge/Visit-My_Portfolio-111?style=for-the-badge&logo=github&logoColor=white)](https://kierzkowski.net)
